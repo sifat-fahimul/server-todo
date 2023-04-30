@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import authRoute from "./routes/auth.js";
+import todoRoute from "./routes/todo.js";
 const app = express();
 dotenv.config();
 
@@ -30,7 +31,7 @@ app.use(express.json());
 
 // api routes
 app.use("/auth", authRoute);
-// app.use("/api/todo", todoRoute);
+app.use("/api/todo", todoRoute);
 
 app.get("/", (req, res) => {
   res.send({ message: "hello server!." });
